@@ -52,9 +52,8 @@ class GameController {
     this.timer = timer;
     
     if(this.timer === 0){
-      console.log('sendScore To Server, and redirect to hight scores');
-      this.ScoreService.saveScore(this.username, this.globalScore);
-      this.$state.go('highscores');
+      this.ScoreService.saveScore(this.username, this.globalScore).then(response => this.$state.go('highscores'));
+
     }
   }
 }
