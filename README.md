@@ -29,3 +29,4 @@ A game runs for 40 seconds, during which the user can solve as many words as she
 Users are identified by their name (no need to create a registration form/password) and a global,
 
 public highscore list should be kept in the database and be viewable in the web app.
+# albert5287.github.io
