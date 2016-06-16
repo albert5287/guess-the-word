@@ -2,10 +2,12 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import gameComponent from './game.component';
 import Timer from './timer';
+import WordService from './word';
 
 const game = angular.module('game', [
 	uiRouter,
-	Timer
+	Timer,
+	WordService
 	])
 .config(config)
 .component('game', gameComponent).name;
@@ -19,6 +21,7 @@ function config($stateProvider){
 		url: "/game",
 		component: 'game',
 		resolve: {
+			words : WordService => WordService.getWords()
           /*currentUser($q, LocalStorage){
             if(LocalStorage.getData("user") === null){
               return $q.reject("AUTH_REQUIRED"); //DON'T WORK USING UI-ROUTER ALPHA

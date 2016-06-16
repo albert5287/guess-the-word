@@ -3,7 +3,9 @@ import controller from './game.controller';
 import './game.scss';
 
 const gameComponent = {
-  bindings: {},
+  bindings: {
+  	words: '<'
+  },
   template,
   controller,
   controllerAs: 'vm'

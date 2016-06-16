@@ -1,7 +1,7 @@
 class GameController {
-  constructor() {
-  	this.username = 'Albert';
-    this.words = ['pizza', 'test', 'food', 'party'];
+  constructor(LocalStorage, WordService) {
+    "ngInject";
+  	this.username = LocalStorage.getData('user');
     this.input = '';
     this.previousInput = '';
     this.globalScore = 0;
@@ -10,20 +10,8 @@ class GameController {
     this.timer = 40;
     this.currentWord = this.words[this.pos];
 
-    this.getMangledWord = (word) =>{
-      var a = word.split(""),
-          n = a.length;
 
-      for(var i = n - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-      }
-      return a.join("");
-    };
-
-    this.mangleWord = this.getMangledWord(this.currentWord);
+    this.mangleWord = WordService.mangleWord(this.currentWord);
 
     this.updateGloblalScore = () => {
       let score = Math.floor(1.95**(this.currentWord.length/3)) - this.deletedLetters; //get the total score for the word
@@ -41,7 +29,7 @@ class GameController {
       this.previousInput = '';
       this.deletedLetters = 0;
       this.currentWord = this.words[this.pos];
-      this.mangleWord = this.getMangledWord(this.currentWord);
+      this.mangleWord = WordService.mangleWord(this.currentWord);
     }
 
   }
