@@ -1,0 +1,26 @@
+<div class="player-datails">
+	<div class="row">
+		<div class="col-xs-6 text-left">
+			<h4>Hi {{vm.username}}!!!</h4>
+		</div>
+		<div class="col-xs-6 text-right">
+			<h4>Score: {{vm.globalScore}}</h4>
+		</div>
+	</div>
+	<div class="container box-word-container">
+		<div>
+			<h3>40 Seconds</h3>
+			<div class="progress timer">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="40" style="width: 45%"></div>
+			</div>
+		</div>
+
+		<div class="box-word">
+			<div class="mangled-word">
+				{{vm.mangleWord}}
+			</div>
+			<input type="text" class="input-word" ng-model="vm.input" ng-keyup="vm.validate($event)">
+		</div>
+	</div>
+
+</div>
