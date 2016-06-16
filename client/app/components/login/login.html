@@ -1,0 +1,12 @@
+<div>
+  <h1>
+    Hey, What's up!!! <br/>
+    Want to Play???
+  </h1>
+  <div class="input-group login-input">
+    <input type="text" class="form-control" ng-model="vm.username" placeholder="Write Your Name Here">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-disabled="!vm.isValidLogin()" ng-click="vm.login()">Let's Play!</button>
+      </span>
+  </div>
+</div>
