@@ -4,16 +4,5 @@
 
 .mastfoot {
   color: rgba(255,255,255,.5);
-}
-
-
-@media (min-width: 40em) {
-  .mastfoot {
-    position: absolute;
-    bottom: 0;
-  }
-  /* Handle the widths */
-  .mastfoot{
-    width: 100%; 
-  }
+  width: 100%;
 }
