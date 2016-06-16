@@ -1,0 +1,31 @@
+
+.panel-heading-highscores{
+  padding: 2rem;
+}
+.panel-body-highscores{
+  padding: 0 !important;
+}
+.user-score-details{
+	margin-left:0;
+	color: black;
+	line-height: 70px;
+	width: 100%;
+	position: relative;
+	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.08);
+	border-radius: 1px;
+	cursor: pointer;
+	counter-increment: highscores;
+	.user-score-username{
+		text-align: left;
+		padding-left: 5rem;
+		&:before {
+		    content: '#' counter(highscores);
+		    margin-right: 2em;
+		    color: rgba(0,0,0,0.5);
+		  }
+	}
+	.user-score-score{
+		text-align: right;
+		padding-right: 5rem;
+	}
+}

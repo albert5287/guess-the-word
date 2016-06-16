@@ -4,6 +4,7 @@ import gameComponent from './game.component';
 import Timer from './timer';
 import WordService from './word';
 
+
 const game = angular.module('game', [
 	uiRouter,
 	Timer,

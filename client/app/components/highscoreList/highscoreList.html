@@ -1,0 +1,13 @@
+<div class="highscores">
+		<div class="panel panel-primary">
+			<div class="panel-heading panel-heading-highscores">
+				<h2 class="panel-title">Highscores</h2>
+			</div>
+			<div class="panel-body panel-body-highscores">
+				<div class="row user-score-details" data-ng-repeat="score in ::vm.scores">
+					<div class="user-score-username col-xs-6">{{::score.username}}</div>
+					<div class="user-score-score col-xs-6">{{::score.score}} Pts</div>
+				</div>
+			</div>
+		</div>
+</div>

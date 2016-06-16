@@ -1,6 +1,8 @@
 class GameController {
-  constructor(LocalStorage, WordService) {
+  constructor(LocalStorage, WordService, ScoreService, $state) {
     "ngInject";
+    this.ScoreService = ScoreService;
+    this.$state = $state;
   	this.username = LocalStorage.getData('user');
     this.input = '';
     this.previousInput = '';
@@ -51,6 +53,8 @@ class GameController {
     
     if(this.timer === 0){
       console.log('sendScore To Server, and redirect to hight scores');
+      this.ScoreService.saveScore(this.username, this.globalScore);
+      this.$state.go('highscores');
     }
   }
 }
