@@ -7,6 +7,7 @@ class GameController {
     this.globalScore = 0;
     this.deletedLetters = 0;
     this.pos = 0;
+    this.timer = 40;
     this.currentWord = this.words[this.pos];
 
     this.getMangledWord = (word) =>{
@@ -32,7 +33,6 @@ class GameController {
         this.globalScore += score;
       }
       this.changeCurrentWord();
-      console.log('score', this.globalScore);
     }
 
     this.changeCurrentWord = () =>{
@@ -47,17 +47,23 @@ class GameController {
   }
 
   validate(keyEvent){
-    console.log(this.input.length);
     if(this.input === this.currentWord){
       this.updateGloblalScore();
     }
     //console.log(this.input.length, this.previousInput.length);
     //console.log(keyEvent.which === 8 && (this.input.length < this.previousInput.length));
     if ((keyEvent.which === 8 || keyEvent.which === 46) && (this.input.length < this.previousInput.length)){
-      console.log('I have delete a letter');
       this.deletedLetters++;
     }
     this.previousInput = this.input;
+  }
+
+  updateTimer(timer){
+    this.timer = timer;
+    
+    if(this.timer === 0){
+      console.log('sendScore To Server, and redirect to hight scores');
+    }
   }
 }
 

@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import gameComponent from './game.component';
+import Timer from './timer';
 
 const game = angular.module('game', [
-  uiRouter
+  uiRouter,
+  Timer
 ])
 .config(config)
 .component('game', gameComponent).name;
