@@ -8,7 +8,7 @@ class LoginController {
 
   login(){
     this.LS.setData('user',this.username);
-    this.$state.go("home");
+    this.$state.go("game");
   }
   
   isValidLogin(){
