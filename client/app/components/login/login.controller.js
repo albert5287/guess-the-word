@@ -1,13 +1,14 @@
 class LoginController {
-  constructor($state) {
+  constructor($state, LocalStorage) {
   	"ngInject";
-    this.username = '';
+    this.username = "";
     this.$state = $state;
+    this.LS = LocalStorage;
   }
 
   login(){
-    console.log('login');
-  	//I have to redirect to the game
+    this.LS.setData('user',this.username);
+    this.$state.go("home");
   }
   
   isValidLogin(){

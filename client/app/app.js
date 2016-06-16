@@ -13,7 +13,7 @@ const root = angular
     Components
   ])
   .config(config)
-
+  .run(run)
   .component('app', AppComponent);
 
   export default root;
@@ -25,4 +25,17 @@ function config($locationProvider, $urlRouterProvider){
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/login');
+}
+
+function run($rootScope, $state) {
+    "ngInject";
+
+    //DON'T GET TO THIS PART USING UI-ROUTER ALPHA
+    $rootScope.$on('$stateChangeError',
+        (event, toState, toParams, fromState, fromParams, error) => {
+            if (error === 'AUTH_REQUIRED') {
+                $state.go('login');
+            }
+        }
+    );
 }
